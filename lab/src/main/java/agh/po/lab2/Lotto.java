@@ -24,6 +24,6 @@ public class Lotto {
         }
 
        // System.out.println("Twoje liczby:" + typy );
-        System.out.println("Wylosowane liczby:" + lottoNumbers);
+        System.out.println("Wylosowane liczby :" + lottoNumbers);
     }
 }
