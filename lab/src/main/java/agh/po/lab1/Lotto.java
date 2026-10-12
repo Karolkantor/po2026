@@ -1,4 +1,4 @@
-//znalezione na githubie, do przeanalizowania
+package agh.po.lab1;//znalezione na githubie, do przeanalizowania
 
 import java.util.HashSet;
 import java.util.Random;
