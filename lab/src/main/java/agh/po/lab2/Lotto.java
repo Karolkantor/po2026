@@ -26,10 +26,10 @@ public class Lotto {
             }
         }
 
-//         zad2
+//      zad2
 //        System.out.println("Twoje typy: " + typy);
 //        System.out.println("Wylosowane liczby: " + lottoNumbers);
-
+//
 //        int trafienia = 0;
 //        for (int typ : typy) {
 //            if (lottoNumbers.contains(typ)) {
@@ -38,6 +38,8 @@ public class Lotto {
 //        }
 //
 //        System.out.println("Liczba trafień: " + trafienia);
+//
+//        koniec zadania 2
 
         long startTime = System.currentTimeMillis();
         long draws = 0;
@@ -55,17 +57,24 @@ public class Lotto {
                 }
             }
 
-            for (int typ : typy) {
-                if (currentDraw.contains(typ)) {
-                    currentHits++;
-                }
-            }
+//            for (int typ : typy) {
+//                if (currentDraw.contains(typ)) {
+//                    currentHits++;
+//                }
+//            }
+
+            ArrayList<Integer> newtypy = new ArrayList<>(typy);
+            newtypy.retainAll(currentDraw);
+            currentHits=newtypy.size();
+
         }
 
         long endTime = System.currentTimeMillis();
         long duration = endTime - startTime;
+        double distribution = (duration*1000000/draws);
 
         System.out.println("Liczba losowań potrzebnych do pełnego trafienia: " + draws);
         System.out.println("Łączny czas działania programu: " + duration + " ms");
+        System.out.println("Rozkład czasu na milion powtórzen: " + distribution + " ms");
     }
 }
