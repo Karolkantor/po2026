@@ -2,6 +2,8 @@ package agh.po.lab3;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CodingBatTest {
 
@@ -71,4 +73,34 @@ public class CodingBatTest {
         assertEquals("MyCaptain", cb.firstHalf("MyCaptainMyCaptain"));
         assertEquals("aaaa", cb.firstHalf("aaaaaaaa"));
     }
+
+    @Test
+    public void mapAB4() {
+        assertEquals(Map.of("a", "aaa", "b", "bb", "c", "aaa"),
+                cb.mapAB4(new HashMap<>(Map.of("a", "aaa", "b", "bb", "c", "cake"))));
+        assertEquals(Map.of("a", "aa", "b", "bbb", "c", "bbb"),
+                cb.mapAB4(new HashMap<>(Map.of("a", "aa", "b", "bbb", "c", "cake"))));
+        assertEquals(Map.of("a", "aa", "b", "bbb", "c", "bbb"),
+                cb.mapAB4(new HashMap<>(Map.of("a", "aa", "b", "bbb"))));
+        assertEquals(Map.of("a", "", "b", "", "c", "cake"),
+                cb.mapAB4(new HashMap<>(Map.of("a", "aa", "b", "bb", "c", "cake"))));
+        assertEquals(Map.of("a", "", "b", ""),
+                cb.mapAB4(new HashMap<>(Map.of("a", "a", "b", "b"))));
+        assertEquals(Map.of("a", "aaa", "c", "cake"),
+                cb.mapAB4(new HashMap<>(Map.of("a", "aaa", "c", "cake"))));
+        assertEquals(Map.of("b", "bbb"),
+                cb.mapAB4(new HashMap<>(Map.of("b", "bbb"))));
+        assertEquals(Map.of(),
+                cb.mapAB4(new HashMap<>()));
+    }
+
+    @Test
+    public void pairs() {
+        assertEquals(Map.of("b", "g", "c", "e"), cb.pairs(new String[]{"core", "berg"}));
+        assertEquals(Map.of("k", "g"), cb.pairs(new String[]{"kag", "kreg", "kaghg"}));
+        assertEquals(Map.of("g", "d", "m", "n", "n", "t"), cb.pairs(new String[]{"men", "man", "gard", "not"}));
+        assertEquals(Map.of(), cb.pairs(new String[]{}));
+        assertEquals(Map.of("a", "a"), cb.pairs(new String[]{"a"}));
+    }
+
 }

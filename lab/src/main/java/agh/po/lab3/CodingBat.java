@@ -1,6 +1,38 @@
 package agh.po.lab3;
 
+import java.util.Map;
+import java.util.HashMap;
+
 public class CodingBat {
+
+
+    public Map<String, String> mapAB4(Map<String, String> map) {
+        if (map.containsKey("a") && map.containsKey("b")) {
+            String a = map.get("a");
+            String b = map.get("b");
+
+            if (a.length() > b.length()) {
+                map.put("c", a);
+            } else if (b.length() > a.length()) {
+                map.put("c", b);
+            } else {
+                map.put("a", "");
+                map.put("b", "");
+            }
+        }
+        return map;
+    }
+
+    public Map<String, String> pairs(String[] strings) {
+        Map<String, String> result = new HashMap<>();
+
+        for (String s : strings) {
+            String first = s.substring(0, 1);
+            String last = s.substring(s.length() - 1);
+            result.put(first, last);
+        }
+        return result;
+    }
 
     public int sum13(int[] nums) {
         int sum=0;
@@ -57,6 +89,8 @@ public class CodingBat {
         System.out.println(cb.array123(new int[]{1,2,2}));
 
         System.out.println(cb.firstHalf("Hello2"));
+
+        System.out.println(cb.mapAB4(new HashMap<>(Map.of("a", "aaa", "b", "bb", "c", "cake"))));
     }
 
 
